@@ -10,8 +10,8 @@ module.exports = {
 	mode: 'development',
 	entry: {
 		
-		'print-html-element.min': path.join(__dirname, 'src/element-printer.ts'),
-		'print-html-element': path.join(__dirname, 'src/element-printer.ts'),
+		'printer.min': path.join(__dirname, 'src/printer.ts'),
+		'printer': path.join(__dirname, 'src/printer.ts'),
 	},
 	output: {
 		path: path.resolve(__dirname, 'dist'),

@@ -1,11 +1,9 @@
 /*
-* Print HTML Element
-*
-* Copyright (c) 2015 Philip Da Silva
+* Element Printer
 *
 * Copyright (c) 2020 Philippe Clesca
 *
-* Forked from jQuery.printElement (https://github.com/erikzaadi/jQueryPlugins/tree/master/jQuery.printElement)
+* Forked from print-html-element (https://github.com/rpdasilva/print-html-element)
 *
 * Licensed under the MIT license:
 *   http://www.opensource.org/licenses/mit-license.php
@@ -18,7 +16,7 @@ interface PrintOptions {
     stylesheets: string | string[] | undefined;
     styles: string | string[] | undefined;
 }
-function PrintHtmlElement() {
+function ElementPrinter() {
     function printElement(element: Element, opts: PrintOptions) {
         let elementHtml: string = element.outerHTML;
 
@@ -165,4 +163,4 @@ function PrintHtmlElement() {
     };
 };
 
-module.exports = PrintHtmlElement();
+module.exports = ElementPrinter();

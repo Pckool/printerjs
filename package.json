@@ -1,16 +1,17 @@
 {
-  "name": "element-printer",
-  "version": "0.5.5",
+  "name": "printerjs",
+  "version": "0.5.6",
   "description": "Prints the HTML of a provided element.",
   "main": "dist/element-printer.js",
   "scripts": {
     "dev": "webpack --config webpack.config.js --watch",
     "super-dev": "webpack --config webpack.config.js --display-error-details --watch",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js",
+    "push": "webpack --config webpack.config.js && npm publish"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Pckool/print-html-element.git"
+    "url": "https://github.com/Pckool/element-printer.git"
   },
   "keywords": [
     "html",
@@ -20,7 +21,7 @@
   "author": "Philippe Clesca <hello@philippec.me>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Pckool/print-html-element/issues"
+    "url": "https://github.com/Pckool/element-printer/issues"
   },
   "devDependencies": {
     "@types/node": "^13.5.0",

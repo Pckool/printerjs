@@ -1,8 +1,8 @@
-# Print HTML Element
+# PrinterJS
 
-Prints the HTML of a provided element.
+A module created to help with printing elements on an html page in an easy and intuative way.
 
-Originally forked from [print-html-element](https://github.com/rpdasilva/print-html-element#readme) continue development.
+Originally forked from [print-html-element](https://github.com/rpdasilva/print-html-element) continue development.
 
 This fork's main improvement is the use of typescript over vanilla js. I will continue to itterate over this to add the intended 'future functionality' of the original author.
 
@@ -11,9 +11,9 @@ View examples [here](https://rpdasilva.github.io/print-html-element/)
 ## Installation
 Print HTML Element is available on both NPM and Bower.
 
-`npm install print-html-element`
+`npm install printerjs`
 
-`bower install print-html-element`
+`yarn install printerjs`
 
 
 ## Usage
@@ -22,30 +22,30 @@ Print HTML Element is available on both NPM and Bower.
 ### Include
 In a CommonJS module system via Browserify or Webpack
 ```js
-    var PHE = require("print-html-element");
+    var PHE = require("printerjs");
 ```
 or (ES)
 ```js
-    import PHE from "print-html-element";
+    import printer from "printerjs";
 ```
 
 Good old-fashioned way
 ```html
-    <script type="text/javascript" src="print-html-element.js"></script>
+    <script type="text/javascript" src="printer.js"></script>
 ```
 ```js
     // Alias global variable printHtmlElement for purposes of example
-    var PHE = printHtmlElement;
+    var printer = ElementPrinter;
 ```
 
 ### Examples
 View examples [here](https://rpdasilva.github.io/print-html-element/)
 
 ```js
-    PHE.printElement( document.getElementById('toPrint') );
-    PHE.printHtml('<h1>Let\'s print this h1</h1>');
+    printer.printElement( document.getElementById('toPrint') );
+    printer.printHtml('<h1>Let\'s print this h1</h1>');
 
-    PHE.printHtml('<h1>Let\'s print this h1</h1>', {templateString: '<header>I\'m part of the template header</header>{{printBody}}<footer>I\'m part of the template footer</footer>'});
+    printer.printHtml('<h1>Let\'s print this h1</h1>', {templateString: '<header>I\'m part of the template header</header>{{printBody}}<footer>I\'m part of the template footer</footer>'});
 ```
 
 An HTML class `pe-body` is also added to the body of the print area which can be used as an additional style hook (on top of the regular print media query/stylesheet)
@@ -61,8 +61,8 @@ An HTML class `pe-body` is also added to the body of the print area which can be
         styles: string | string[];
     };
 
-    PHE.printElement( elem, opts ); // Prints a DOM Element
-    PHE.printHtml( str, opts ); // Prints an HTML string
+    printer.printElement( elem, opts ); // Prints a DOM Element
+    printer.printHtml( str, opts ); // Prints an HTML string
 ```
 
 - printMode determines which method is used to print. As a hidden `iframe` (default), or `popup` window
@@ -73,15 +73,17 @@ An HTML class `pe-body` is also added to the body of the print area which can be
 - stylesheets overrides parsed `link` tags and instead injects `link` tags with hrefs specified as either a single string or array of strings
 - styles overrides parsed `style` tags and instead injects `style` blocks specified as either a single string or array of strings
 
+## Next Feature
+
+- Promise/callback support
 
 ## Possible future features
 
 - Integrate a template system (such as handlebars)
 - Support multiple and/or custom template variables
 - Support for multiple elements/HTML strings
-- Promise/callback support
 
 
 ## License
 
-`print-html-element` is [MIT licensed](LICENSE.txt)
+`printerjs` is [MIT licensed](LICENSE.txt)
