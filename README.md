@@ -57,6 +57,7 @@ An HTML class `pe-body` is also added to the body of the print area which can be
         pageTitle: string;
         templateString: string;
         popupProperties: string;
+        closePopup: boolean;
         stylesheets: string | string[];
         styles: string | string[];
     };
@@ -70,6 +71,7 @@ An HTML class `pe-body` is also added to the body of the print area which can be
 - templateString allows you to define a template that the html will be printed within.
     - Use `{{printBody}}` within the template to signify where the HTML should be injected
 - popupProperties set the window features (such as `menubar`, `scrollbars`, etc. in `popup` mode
+- closePopup determines if the popup should automatically close after trying to print. This is useful for mobile and automatic print on unsupported browsers
 - stylesheets overrides parsed `link` tags and instead injects `link` tags with hrefs specified as either a single string or array of strings
 - styles overrides parsed `style` tags and instead injects `style` blocks specified as either a single string or array of strings
 

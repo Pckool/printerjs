@@ -13,6 +13,7 @@ interface PrintOptions {
     pageTitle: string | undefined;
     templateString: string | undefined;
     popupProperties: string | undefined;
+    closePopup: boolean | undefined;
     stylesheets: string | string[] | undefined;
     styles: string | string[] | undefined;
 }
@@ -34,6 +35,7 @@ function ElementPrinter() {
             pageTitle: _opts?_opts.pageTitle:undefined || '',
             templateString: _opts?_opts.templateString:undefined || '',
             popupProperties: _opts?_opts.popupProperties:undefined || '',
+            closePopup: _opts?_opts.closePopup:undefined || true,
             stylesheets: _opts?_opts.stylesheets:undefined || null,
             styles: _opts?_opts.styles:undefined || null
         };
@@ -81,20 +83,23 @@ function ElementPrinter() {
           printDocument.close();
         });
 
-        _callPrint(printWindow, printIframe);
+        _callPrint(printWindow, printIframe, opts.closePopup);
     }
 
-    function _callPrint(printWindow: any, iframe: Element) {
+    function _callPrint(printWindow: any, iframe: Element, closePopup: boolean) {
+        console.log('calling Print...');
         if (printWindow && printWindow.printPage) {
             printWindow.printPage();
 
-            if (iframe) {
+            if (iframe && closePopup) {
                 // Remove iframe after printing
                 document.body.removeChild(iframe);
             }
-        } else {
+        }
+        
+        else {
             setTimeout(function() {
-                _callPrint(printWindow, iframe);
+                _callPrint(printWindow, iframe, closePopup);
             }, 50);
         }
     }
@@ -151,7 +156,7 @@ function ElementPrinter() {
         html.push('<base href="' + _getBaseHref() + '" />');
         html.push('</head><body class="pe-body">');
         html.push(elementHtml);
-        html.push('<script type="text/javascript">function printPage(){focus();print();' + ((opts.printMode.toLowerCase() == 'popup') ? 'close();' : '') + '}</script>');
+        html.push('<script type="text/javascript">function printPage(){focus();print();' + ((opts.printMode.toLowerCase() == 'popup' && opts.closePopup) ? 'close();' : '') + '}</script>');
         html.push('</body></html>');
 
         return html.join('');

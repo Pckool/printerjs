@@ -1,6 +1,6 @@
 {
   "name": "printerjs",
-  "version": "0.5.7",
+  "version": "0.6.0",
   "description": "Prints the HTML of a provided element.",
   "main": "dist/printer.min.js",
   "scripts": {
